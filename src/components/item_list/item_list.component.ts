@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';  
+import { Component, Input,Output,EventEmitter } from '@angular/core';  
 import { ItemComponent } from '../item/item.component';
 import { CommonModule} from "@angular/common";
-import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
+
 
 @Component({
     selector: 'item_list',
@@ -10,6 +10,11 @@ import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProv
     imports: [CommonModule, ItemComponent]
 })
 export class ItemListComponent {
+    @Output() deleteitem = new EventEmitter<number>();
+     deleteItem(index: number){
+        this.deleteitem.emit(index);
+    }
+    @Input()
     data: Array<{name: string; description?: string; date: Date}>=[{name: 'sample Item', date: new Date()},{name: 'sample Item 2', date: new Date()}, {name: 'Sample Item 3', date: new Date()}];
     
     addItem(name:string, date: Date,description?:string) {
@@ -26,8 +31,5 @@ export class ItemListComponent {
             description: description,
             date: date
         };
-    }
-    deleteItem(index: number) {
-        this.data.splice(index, 1);
     }
 }

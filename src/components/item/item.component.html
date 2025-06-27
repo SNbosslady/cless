@@ -1,13 +1,12 @@
-<li>
-    <div class="item">
-        <div class="item__content">
-            <h2 appHighlight class="item__title">{{name | uppercase}}</h2>
-            <p class="item__description">{{description}}</p>
-        </div>
-        <div class="item__actions">
-            <!-- <button class="item__button" (click)="onActionClick(item.id)">Action</button> -->
-        </div>
-
+<li  class="item">
+    <div class="item__content">
+        <h2 class="item__title">{{ name | titlecase }}</h2>
+        <p class="item__description">{{ description }}</p>
     </div>
-
+    <div  class="item__actions">
+        <button (click)="delete()" class="item__button btn_danger ">
+            Delete
+        </button>
+        <button  (click)="edit()" class="item__button btn">Edit</button>
+    </div>
 </li>

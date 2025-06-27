@@ -1,8 +1,6 @@
 <ul>
     <nav></nav>
     
-    <item *ngFor="let item of data" [name]="item.name" ></item>
-       <!-- <li *ngfor="let item of data">
-         {{item.name}}
-        </li> -->
+    <item *ngFor="let item of data; index as i" [name]="item.name" [index]="i" (item_position)="deleteItem($event)"></item>
+      
 </ul>

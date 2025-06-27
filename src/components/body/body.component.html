@@ -1,1 +1,2 @@
-<item_list></item_list>
+<search-bar (newitem)="addNewItem($event)" ></search-bar>
+<item_list (deleteitem)="delete($event)" [data]= "data"></item_list>
