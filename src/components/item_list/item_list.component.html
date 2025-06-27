@@ -1,6 +1,9 @@
 <ul>
     <nav></nav>
+    <div *ngIf="!data || data.length === 0" class="empty">
+        <h3>No items found</h3>
+    </div>
     
-    <item *ngFor="let item of data; index as i" [name]="item.name" [index]="i" (item_position)="deleteItem($event)"></item>
+    <item *ngFor="let item of data; index as i" [name]="item.name" [index]="i" (item_position)="deleteItem($event)" (item_action)="action_handler($event)"></item>
       
 </ul>

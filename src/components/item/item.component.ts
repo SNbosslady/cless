@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, input, Input, Output } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import  item_interface from "../../interfaces/Itodo";
 
 @Component(
     {
@@ -17,11 +18,13 @@ export class ItemComponent {
     }
 
     @Output() item_position = new EventEmitter<number>();
+     @Output() item_action = new EventEmitter<item_interface>();
+
+    // Define an interface for the item action
     @Input()
     index:number=0;
 
     delete(){
-
         this.item_position.emit(this.index);
     }
     
@@ -58,10 +61,17 @@ export class ItemComponent {
         // checks for specific params 
       return false
     }
-
+isEdit=false;
+onEdit(){
+    this.isEdit = !this.isEdit;
+}
     edit(){
-        alert("Edit item: " + this.name);
+        //alert("Edit item: " + this.name);
+        this.onEdit()
+        this.item_action.emit({index: this.index, action: 'edit', new_value: this.name})
     }
-   
+   onUpdate(event:any){
+    this.name=event.target.value;
+    }
 
 }
