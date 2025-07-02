@@ -16,7 +16,7 @@ export class ItemListComponent {
     this.deleteitem.emit(index);
   }
   @Input()
-  data: Array<{ name: string; description?: string; date: Date }> = [
+  data: Array<{ name: string; description?: string; date: Date ,done?: boolean}> = [
     { name: 'sample Item', date: new Date() },
     { name: 'sample Item 2', date: new Date() },
     { name: 'Sample Item 3', date: new Date() },
@@ -42,6 +42,12 @@ export class ItemListComponent {
       this.edititemevent.emit(event);
     }
     if (event.action === 'delete') {
+    }
+  }
+  doneItem(index: number) {
+    const item = this.data[index];
+    if (item) {
+      item.done = true;
     }
   }
 }

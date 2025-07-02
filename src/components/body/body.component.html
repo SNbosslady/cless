@@ -1,2 +1,6 @@
+<nav>
+  <a href="/dashboard" routerLinkActive="active">Dashboard</a>
+</nav>
 <search-bar (newitem)="addNewItem($event)" ></search-bar>
 <item_list (deleteitem)="delete($event)" [data]= "data"></item_list>
+<item_list (doneitem)="done($event)" [data]= "data"></item_list>

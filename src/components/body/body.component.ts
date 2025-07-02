@@ -2,7 +2,6 @@ import{Component} from '@angular/core';
 import { ItemListComponent } from '../item_list/item_list.component';
 import {SearchBarComponent} from '../search-bar/search-bar.component';
 import { CommonModule } from '@angular/common';
-
 @Component({
     selector: 'app-body',
     imports: [ItemListComponent,SearchBarComponent,CommonModule],

@@ -5,7 +5,8 @@ import{UserComponent} from "../user/user.component"
     selector: "nav-bare",
     templateUrl:"./nav.component.html",
     styleUrls: ["./nav.component.css"],
-    imports: [UserComponent]    
+    imports: [UserComponent],
+        
 })
 export class NavComponent{
     title: string;
