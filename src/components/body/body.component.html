@@ -1,0 +1,5 @@
+<nav>
+  <a href="/dashboard" routerLinkActive="active">Dashboard</a>
+</nav>
+<search-bar (newitem)="addNewItem($event)" ></search-bar>
+<item_list  (doneevent)="toggledone($event)" (deleteitem)="delete($event)" [data]= "data"></item_list>

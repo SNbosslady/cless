@@ -1,0 +1,19 @@
+<li  class="item">
+    <div class="item__content">
+        <h4 *ngIf="!isEdit" class="item__title">{{ name | titlecase }}</h4>
+        <input *ngIf="isEdit" (keyup)="onUpdate($event)" [value]="name" type="text" >
+        <p class="item__description">{{ description }}</p>
+    </div>
+    <div  class="item__actions">
+      <button *ngIf="!done" (click)="delete()" class="item__button btn_danger ">
+    Delete
+</button>
+<button *ngIf="!done && !isEdit" (click)="onEdit()" class="item__button btn">Edit</button>
+<button *ngIf="!done && isEdit" (click)="edit()" class="item__button btn btn-success">save</button>
+
+       <button (click)="markAsDone()" class="item__button btn btn-primary">
+             {{ done ? 'Mark as Undone' : 'Done' }}
+       </button>
+
+    </div>
+</li>

@@ -1,0 +1,41 @@
+<ul>
+    <nav></nav>
+
+    <div *ngIf="!data || data.length === 0" class="empty">
+        <h3>No items found</h3>
+    </div>
+
+    <h1>Uncompleted</h1>
+     <div *ngIf="uncompletedTasks.length === 0" class="empty">
+  <h3>No uncompleted task</h3>
+</div>
+    <div *ngFor="let item of uncompletedTasks; index as i">
+        <item 
+            *ngIf="!item.done" 
+            [name]="item.name" 
+            [index]="i" 
+            [done]="!!item.done"
+            (item_position)="deleteItem($event)" 
+            (item_action)="action_handler($event)" 
+            (doneitem)="handleDone($event)">
+        </item>
+    </div>
+
+    <hr>
+
+    <h1>Completed</h1>
+     <div *ngIf="completedTasks.length === 0" class="empty">
+  <h3>No completed task</h3>
+</div>
+    <div *ngFor="let item of completedTasks; index as i">
+        <item 
+            *ngIf="item.done" 
+            [name]="item.name" 
+            [index]="i" 
+            [done]="!!item.done"
+            (item_position)="deleteItem($event)" 
+            (item_action)="action_handler($event)" 
+            (doneitem)="handleDone($event)">
+        </item>
+    </div>    
+</ul>
